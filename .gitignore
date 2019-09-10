@@ -1,12 +1,1 @@
-/.coverage
-__pycache__
-/.cache
-/test/data/01/out/tables/sample.csv
-/test/data/02/in/user/model
-/test/data/02/in/user/pokus
-/test/data/02/in/user/model.manifest
-/test/data/02/in/user/pokus.manifest
-/test/data/03/script.py
-/test/data/02/script.py
-/test/data/01/script.py
 /.idea
