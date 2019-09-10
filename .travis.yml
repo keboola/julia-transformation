@@ -1,0 +1,20 @@
+sudo: required
+language: bash
+services:
+  - docker
+before_script:
+  - docker build -t julia-transformation .
+script: 
+  - docker run julia-transformation
+after_success:
+  - docker images
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: ./deploy.sh
+  on:
+    tags: true  
+notifications:
+  email: false
+  slack:
+    secure: l+PxrT66/JX2wFoK8AMWnDh7D4RRgE5iPYZ+r8NG+Sr7grKsAc92Yh9eC6Nia8G8rf7Glj8ZmzvapH7DWlMeIFicjJdNyNv+TcHBYduqNiK4JOwc50Elk+GXbK3QGxJWW4w8z6xVBEo8w7vUmZbPxtqLyhZyRAK1YvUXtBxQsafrNassipcXKGVhphmTngTTBDer96oNNA6DZB6OUT0vS059zhJpNRFWpT/ekGk4UwOoGrrOKGpHM+lG4efNoVURl/mxHvhR7QMEM3ZoXcp26pIHCyToKgFVRECg7fo5CVFxC4cNQkkk06ttMpnX43Bbylrn50UC3x29/iDAJ978pwk0apjv7SWHfxOQxUiT3yN7TmIDxFLHMGsgvVyMRAWr2aKlXiYJP6HqRDMQLUpsHm9Qku1nWtjdyPJ2dgAbcPYsZHKqukyqy8x2XgbcKk7fPOPsXbHuzDAcaiClqwlEvF08/rbvS5wEoIn82fVreRe2uI7EvpcrZwdxLQgoczRn7Hw1Dl3EJBhqi9JRaIhSFEEb6ioHIzgnEGkJGCeh7lA0rqwqnZXk3fdWEejB9pmVY8LAq0WouKcdKQNyL9+P8Z7NLTP0MUIx2fSJ0YJkIPZF+32qW1it5iQjqaoU1fd8ODQrmJpnSQ/DuoksoZ8yzimHkZxc2EvO8ubKjLu9740=
