@@ -5,15 +5,17 @@ services:
 before_script:
   - docker build -t ${KBC_APP_REPOSITORY} .
 script: 
-  - docker run ${KBC_APP_REPOSITORY}
+  - docker run ${KBC_APP_REPOSITORY} julia -e "using Pkg; Pkg.activate(\"/code\"); Pkg.update(); Pkg.build(); Pkg.test()"
 after_success:
   - docker images
+
 deploy:
   provider: script
   skip_cleanup: true
   script: ./deploy.sh
   on:
-    tags: true  
+    tags: true
+
 notifications:
   email: false
   slack:
