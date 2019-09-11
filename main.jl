@@ -1,3 +1,5 @@
-import KeboolaConnectionComponent
+import Pkg
+Pkg.activate("/code/")
+using KeboolaConnectionTransformation
 
-println("Hello World: action ", KeboolaConnectionComponent.getAction())
+KeboolaConnectionTransformation.run()

@@ -1,0 +1,8 @@
+name = "KeboolaConnectionTransformation"
+uuid = "96bbcf10-d49f-11e9-2c4a-655af8f8b788"
+authors = ["odin <odinuv@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+KeboolaConnectionComponent = "1dab3330-d3d3-11e9-30e5-29302034c079"
+Pkg = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
