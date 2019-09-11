@@ -8,4 +8,4 @@ RUN julia -e "using Pkg; Pkg.add(PackageSpec(url=\"https://github.com/keboola/ju
 COPY . /code/
 
 # Run the application
-ENTRYPOINT julia /code/main.jl
+CMD julia /code/main.jl

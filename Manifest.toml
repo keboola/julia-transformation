@@ -98,7 +98,7 @@ version = "0.21.0"
 [[KeboolaConnectionComponent]]
 deps = ["CSV", "JSON"]
 git-tree-sha1 = "0545f3354f608888b8213cf0c145d15fc55a4014"
-repo-rev = "odin-init"
+repo-rev = "master"
 repo-url = "https://github.com/keboola/julia-component"
 uuid = "1dab3330-d3d3-11e9-30e5-29302034c079"
 version = "0.1.0"
