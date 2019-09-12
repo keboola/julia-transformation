@@ -56,6 +56,25 @@ end
     delete!(ENV, "KBC_DATADIR")
 end
 
+@testset "no packages" begin
+    data = getconfigdata()
+    data["parameters"] = Dict(
+        "packages" => [],
+        "script" => ["println(\"Hello\")\nprintln(\"World\")"]
+    )
+    path = createconfig(data)
+    ENV["KBC_DATADIR"] = path
+    @test KeboolaConnectionTransformation.run() == 0
+
+    open(joinpath(path, "script.jl"), "r") do file
+        script = read(file, String)
+        @test script == "println(\"Hello\")\nprintln(\"World\")"
+    end
+    @test pwd() == path
+
+    delete!(ENV, "KBC_DATADIR")
+end
+
 @testset "invalid package" begin
     data = getconfigdata()
     data["parameters"] = Dict(

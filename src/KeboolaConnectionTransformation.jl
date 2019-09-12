@@ -24,7 +24,9 @@ function run()::Integer
             throw(ArgumentError("Failed to install package '" * package * "' error: " * e.msg))
         end
     end
-    Pkg.resolve()
+    if length(packages) > 0
+        Pkg.resolve()
+    end
 
     # Change current working directory so that relative paths work
     cd(datadir)
