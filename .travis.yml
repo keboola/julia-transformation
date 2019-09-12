@@ -3,9 +3,9 @@ language: bash
 services:
   - docker
 before_script:
-  - docker build -t julia-transformation .
+  - docker build -t ${KBC_APP_REPOSITORY} .
 script: 
-  - docker run julia-transformation
+  - docker run ${KBC_APP_REPOSITORY}
 after_success:
   - docker images
 deploy:
