@@ -1,9 +1,11 @@
 FROM quay.io/keboola/docker-custom-julia:0.1.0
 
-WORKDIR /home
+WORKDIR /code
+
+RUN julia -e "using Pkg; Pkg.add(PackageSpec(url=\"https://github.com/keboola/julia-component\", rev=\"master\"));"
 
 # Initialize the transformation runner
-COPY . /home/
+COPY . /code/
 
 # Run the application
-ENTRYPOINT julia ./main.jl --data=/data/
+CMD julia /code/main.jl

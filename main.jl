@@ -1,1 +1,5 @@
-println("Hello World")
+import Pkg
+Pkg.activate("/code/")
+using KeboolaConnectionTransformation
+
+KeboolaConnectionTransformation.run()
