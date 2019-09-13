@@ -17,14 +17,16 @@ function run()::Integer
 
     # install packages
     packages = get(parameters, "packages", [])
-    for package in Iterators.Stateful(packages)
-        try
-            Pkg.add(package)
-        catch e
-            throw(ArgumentError("Failed to install package '" * package * "' error: " * e.msg))
+    if length(packages) > 0
+        for package in Iterators.Stateful(packages)
+            try
+                Pkg.add(package)
+            catch e
+                throw(ArgumentError("Failed to install package '" * package * "' error: " * e.msg))
+            end
         end
+        Pkg.resolve()
     end
-    Pkg.resolve()
 
     # Change current working directory so that relative paths work
     cd(datadir)
