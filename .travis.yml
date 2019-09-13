@@ -5,7 +5,7 @@ services:
 before_script:
   - docker build -t ${KBC_APP_REPOSITORY} .
 script: 
-  - docker run ${KBC_APP_REPOSITORY} julia -e "using Pkg; Pkg.activate(\"/code\"); Pkg.update(); Pkg.build(); Pkg.test()"
+  - docker run ${KBC_APP_REPOSITORY} julia -e "using Pkg; Pkg.activate(\"/code\"); Pkg.build(); Pkg.test()"
 after_success:
   - docker images
 
