@@ -1,4 +1,4 @@
-FROM quay.io/keboola/docker-custom-julia:0.2.0
+FROM quay.io/keboola/docker-custom-julia:0.2.1
 
 WORKDIR /code
 
