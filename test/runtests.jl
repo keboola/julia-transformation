@@ -87,7 +87,7 @@ end
         KeboolaConnectionTransformation.run()
     catch e
         @test e isa ArgumentError
-        @test e.msg == "Failed to install package 'non existent package' error: non existent package is not a valid packagename."
+        @test e.msg == "Failed to install package 'non existent package' error: `non existent package` is not a valid package name"
     end
     delete!(ENV, "KBC_DATADIR")
 end
