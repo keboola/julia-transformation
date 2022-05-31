@@ -15,3 +15,7 @@ The core functionality is wrapped in a package, so it may be used directly in Ju
 using Pkg;
 Pkg.add(PackageSpec(url="https://github.com/keboola/julia-transformation", rev="master"))
 ```
+
+## License
+
+MIT licensed, see [LICENSE](./LICENSE) file.
